@@ -1,0 +1,165 @@
+/* Firefox and IE/Edge is not supporting custom scrollbars */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(133, 206, 240); 
+}
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px;
+}
+
+
+@font-face {
+  font-family: atari;
+  src: url('/assets/atari-kids.ttf');
+}
+/* Custom properties */
+:root{
+  --colorText: rgb(133, 206, 240);
+  --bluishBorder: rgba(133, 206, 240, 0.2);
+  --transparentBg:  rgba(24, 24, 36, 0.5);
+  --transparentBlack:  rgba(24, 24, 36, 0.9);
+  --neonOrange: rgba(255, 157, 65, 0.7);
+}
+
+body {
+    margin: 0;
+    color: var(--colorText);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a, a:visited {
+  color: var(--colorText);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--neonOrange);
+}
+
+textarea {
+  resize: none;
+  padding: 1rem;
+  width: 65vw;
+  height: 39rem;
+  border-radius: 10px;
+  border-color:var(--bluishBorder);
+  background-color: var(--transparentBg);
+  color: var(--colorText);
+  font-family: 'Cutive Mono', monospace;
+}
+
+.bg-container {
+  background-image: linear-gradient(to bottom, rgba(25, 35, 59, 0.75), rgba(31, 16, 51, 0.75)), url('/assets/background1920x1200.jpg');
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 10vw auto  ;
+  grid-template-rows: 10vh auto 10vh;
+  grid-template-areas: 
+    ". ."
+    "title main"
+    ". .";
+}
+
+.title {
+    grid-area: title;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-family: atari, sans-serif;
+    padding: 1rem;
+    padding-top: 0;
+  }
+ 
+  .main-container {
+    grid-area: main;
+    background-color: var(--transparentBg);
+    box-shadow: 0 0 3px 0 rgba(133, 206, 240, 0.5);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height: 80vh;
+
+    display: grid;
+    grid-template-columns: 70vw auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "paste-container pastes";
+  }
+
+.paste-container{
+    grid-area: paste-container;
+}  
+.paste-form {
+  padding: 2rem;
+}
+
+.paste-form textarea:focus,
+.paste-form textarea:hover 
+{
+  outline: none;
+  background-color:var(--transparentBlack);
+  color: var(--neonOrange);
+  border: 1px solid var(--neonOrange);
+}
+
+.paste-form button {
+  width: 100%;
+  padding: 0.25rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  border: 1px solid var(--bluishBorder);
+  background-color: var(--transparentBg);
+  color: var(--colorText);
+  font-family: atari, sans-serif;
+}
+
+.paste-form button:hover {
+  background-color:var(--transparentBlack);
+  color: var(--neonOrange);
+  border: 1px solid var(--neonOrange);
+}
+
+
+.paste-reading {
+  padding: 2rem;
+}
+
+.paste-id {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--colorText);
+  font-family: 'Cutive Mono', monospace;
+}
+
+.paste-reading textarea{
+  height: 40rem;
+  outline: none;
+}
+
+.pastes {
+    grid-area: pastes;
+    padding: 2rem;
+    font-family: 'Cutive Mono', monospace;
+    overflow: auto;
+}
+
+.paste{
+  display: grid;
+  grid-template-columns: 12rem auto  ;
+  grid-template-rows: auto;
+  grid-template-areas: "date paste";
+  padding-bottom: 1rem;
+}
+
+.paste-date {
+  grid-area: date;
+}
+
+.paste-title {
+  grid-area: paste;
+  margin: 0;
+}
+
